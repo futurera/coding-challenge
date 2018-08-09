@@ -20,3 +20,5 @@ public class BSTIterator implements Iterator {
 		}
 	}
 }
+
+//This tree can print in order
