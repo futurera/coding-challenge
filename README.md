@@ -2,13 +2,13 @@
 Here host V1 codes of Futurera's coding workshop.
 
 1. The order to complete the tasks, recommended by our questions committees based on the difficulty asc is:
-  - PlusOne
-  - RemoveAllDuplicatesFromSortedArray
-  - BracketMatch
-  - BSTIteratorTestRunner
-  - MaximumSubarray
-  - LFUCacheTestRunner
-  - TheSkylineProblem
+  - PlusOne (15 min)
+  - RemoveAllDuplicatesFromSortedArray (15 min)
+  - BracketMatch (15 min)
+  - BSTIteratorTestRunner (15 min)
+  - MaximumSubarray (30 min)
+  - LFUCacheTestRunner (30 min)
+  - TheSkylineProblem (30 min)
 Please note that the difficulty level may vary from person to person because of the experience and how hard they practice. You may find different difficulty challenges from someone else, or from our recommendation.
 
 2. The exact questions are introduced in the files. Please read the question carefully before you start coding, to make sure you are satisfying the requirement.
