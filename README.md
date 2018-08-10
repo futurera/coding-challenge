@@ -20,10 +20,10 @@ Please note that the difficulty level may vary from person to person because of 
   - `javac io/futurera/algorithm/{the java file you are going to test}`
   - `java -cp . io/futurera/algorithm/{the class file you are going to test, without file extension)`
   
-  The first line compiles the file, while the second line executes the main function in the class. Make sure you have the .(dot) in the right place in 3.2.
-  e.g., to test RemoveFirstDuplicatesFromSortedArray, you need to execute the two commands here:
+    The first line compiles the file, while the second line executes the main function in the class. Make sure you have the .(dot) in the right place in 3.2.
+    e.g., to test RemoveFirstDuplicatesFromSortedArray, you need to execute the two commands here:
   
-  `javac io/futurera/algorithm/RemoveFirstDuplicatesFromSortedArray.java`
+    `javac io/futurera/algorithm/RemoveFirstDuplicatesFromSortedArray.java`
   
-  `java -cp . io/futurera/algorithm/RemoveFirstDuplicatesFromSortedArray`
+    `java -cp . io/futurera/algorithm/RemoveFirstDuplicatesFromSortedArray`
   
