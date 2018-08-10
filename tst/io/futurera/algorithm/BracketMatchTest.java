@@ -1,8 +1,41 @@
 package io.futurera.algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BracketMatchTest {
     public static void main(String[] args) {
-        System.out.println("test case completed.");
+        List<Boolean> result = new ArrayList<>();
+        result.add(testcase1());
+        result.add(testcase2());
+        result.add(testcase3());
+        result.add(testcase4());
+        result.add(testcase5());
+        result.add(testcase6());
+        result.add(testcase7());
+        result.add(testcase8());
+        result.add(testcase9());
+        result.add(testcase10());
+        result.add(testcase11());
+        result.add(testcase12());
+        result.add(testcase13());
+        result.add(testcase14());
+        result.add(testcase15());
+        result.add(testcase16());
+        result.add(testcase17());
+        result.add(testcase18());
+        result.add(testcase19());
+        result.add(testcase20());
+        result.add(testcase21());
+        result.add(testcase22());
+        result.add(testcase23());
+        result.add(testcase24());
+
+        long fails = result.stream().filter(r -> r == false).count();
+        if(fails == 0L)
+            System.out.println("All test cases passed");
+        else
+            System.out.println("At least one test case fails");
     }
 
     private static boolean testcase1(){
