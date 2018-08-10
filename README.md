@@ -3,7 +3,7 @@ Here host V1 codes of Futurera's coding workshop.
 
 1. The order to complete the tasks, recommended by our questions committees based on the difficulty asc is:
   - PlusOne
-  - RemoveFirstDuplicatesFromSortedArray
+  - RemoveAllDuplicatesFromSortedArray
   - BracketMatch
   - BSTIteratorTestRunner
   - MaximumSubarray
