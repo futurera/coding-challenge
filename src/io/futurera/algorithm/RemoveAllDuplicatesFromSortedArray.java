@@ -2,9 +2,15 @@ package io.futurera.algorithm;
 
 import java.util.Arrays;
 
-public class RemoveFirstDuplicatesFromSortedArray {
+public class RemoveAllDuplicatesFromSortedArray {
 
-    public int[] removeDuplicates(int[] nums) {
+    /**
+     * Given a sorted array nums, remove the duplicates in-place such that each 
+     * element appear only once and return the new length. Do not allocate extra 
+     * space for another array, you must do this by modifying the input array in-place 
+     * with O(1) extra memory.
+     */
+    public static int[] removeDuplicates(int[] nums) {
         return new int[] {};
     }
 
@@ -15,19 +21,18 @@ public class RemoveFirstDuplicatesFromSortedArray {
      **********************************************************************/
 
     public static void main(String[] args) {
-        RemoveFirstDuplicatesFromSortedArray rfdfsa = new RemoveFirstDuplicatesFromSortedArray();
-        rfdfsa.happyCase1();
-        rfdfsa.happyCase2();
-        rfdfsa.happyCase3();
-        rfdfsa.happyCase4();
-        rfdfsa.happyCase5();
-        rfdfsa.happyCase6();
-        rfdfsa.happyCase7();
-        rfdfsa.happyCase8();
+        happyCase1();
+        happyCase2();
+        happyCase3();
+        happyCase4();
+        happyCase5();
+        happyCase6();
+        happyCase7();
+        happyCase8();
         System.out.println("--------------------\nTest DONE");
     }
 
-    private boolean happyCase1() {
+    private static boolean happyCase1() {
         int[] testData = new int[] { 1, 2, 2, 3 };
         int[] expectedResult = new int[] { 1, 2, 3 };
         int[] actualResult = removeDuplicates(testData);
@@ -40,7 +45,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase2() {
+    private static boolean happyCase2() {
         int[] testData = new int[] { 1, 2, 2, 2, 3 };
         int[] expectedResult = new int[] { 1, 2, 3 };
         int[] actualResult = removeDuplicates(testData);
@@ -53,7 +58,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase3() {
+    private static boolean happyCase3() {
         int[] testData = new int[] { 1, 2, 2, 3, 3 };
         int[] expectedResult = new int[] { 1, 2, 3 };
         int[] actualResult = removeDuplicates(testData);
@@ -66,7 +71,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase4() {
+    private static boolean happyCase4() {
         int[] testData = new int[] {};
         int[] actualResult = removeDuplicates(testData);
         if (actualResult.length != 0) {
@@ -76,7 +81,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase5() {
+    private static boolean happyCase5() {
         int[] expectedResult = new int[] { 1 };
         int[] actualResult = removeDuplicates(expectedResult);
         if (actualResult.length != 1 || actualResult[0] != 1) {
@@ -86,7 +91,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase6() {
+    private static boolean happyCase6() {
         int[] testData = new int[] { 1, 1 };
         int[] expectedResult = new int[] { 1 };
         int[] actualResult = removeDuplicates(testData);
@@ -99,7 +104,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase7() {
+    private static boolean happyCase7() {
         int[] testData = new int[] { 1, 2, 3 };
         int[] expectedResult = new int[] { 1, 2, 3 };
         int[] actualResult = removeDuplicates(testData);
@@ -112,7 +117,7 @@ public class RemoveFirstDuplicatesFromSortedArray {
         return true;
     }
 
-    private boolean happyCase8() {
+    private static boolean happyCase8() {
         int[] expectedResult = null;
         int[] actualResult = removeDuplicates(expectedResult);
         if (actualResult == null) {
