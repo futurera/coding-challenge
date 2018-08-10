@@ -6,14 +6,34 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Random;
 
-public class LFUCacheTest {
+public class LFUCacheTestRunner {
+    
+    // put your codes in this inner class
+    static private class LFUCache {
+        public LFUCache(int capacity) {
+        }
+
+        public int get(int key) {
+            return 0;
+        }
+
+        public void put(int key, int value) {
+        }
+    }
+    
+    /**********************************************************************
+     *                                                                    *
+     * Below are to test your codes. DO NOT LOOK WHEN YOU ARE CODING!     *
+     *                                                                    *
+     **********************************************************************/
+
     private static final int NUM_OPERATIONS = 1000;
     private static final int NUM_BOUND = 20;
 
-    private LFUCache golden;
+    private LFUCacheExpected golden;
     private LFUCache sut;
 
-    public LFUCacheTest(LFUCache golden, LFUCache sut) {
+    public LFUCacheTestRunner(LFUCacheExpected golden, LFUCache sut) {
         this.golden = golden;
         this.sut = sut;
     }
@@ -22,7 +42,7 @@ public class LFUCacheTest {
         int size = 3;
 
         System.out.println("=============\nFirst Test. Size = " + size + "\n");
-        LFUCacheTest test = new LFUCacheTest(new LFUCacheAnswer(size), new LFUCacheImpl(size));
+        LFUCacheTestRunner test = new LFUCacheTestRunner(new LFUCacheExpected(size), new LFUCache(size));
         test.put(2, 2);
         test.put(1, 1);
         test.get(2);
@@ -38,7 +58,7 @@ public class LFUCacheTest {
         test.get(4);
 
         System.out.println("=============\nSecond Test. Size = " + size + "\n");
-        test = new LFUCacheTest(new LFUCacheAnswer(size), new LFUCacheImpl(size));
+        test = new LFUCacheTestRunner(new LFUCacheExpected(size), new LFUCache(size));
         test.put(1, 10);
         test.put(2, 20);
         test.put(3, 30);
@@ -55,12 +75,11 @@ public class LFUCacheTest {
         test.get(4);
         test.get(5);
 
-
         System.out.println("=============\nThird Test. Size = " + size + "\n");
         Random random = new Random();
         size = random.nextInt(5) + 1;
-        test = new LFUCacheTest(new LFUCacheAnswer(size), new LFUCacheImpl(size));
-        for (int i=0; i<NUM_OPERATIONS; i++) {
+        test = new LFUCacheTestRunner(new LFUCacheExpected(size), new LFUCache(size));
+        for (int i = 0; i < NUM_OPERATIONS; i++) {
             Operation operation = randomOperation();
             test.operate(operation);
         }
@@ -76,7 +95,6 @@ public class LFUCacheTest {
         return new Operation(action, key, value);
     }
 
-
     private void put(int key, int value) {
         Operation operation = new Operation(Action.PUT, key, value);
         operate(operation);
@@ -88,8 +106,6 @@ public class LFUCacheTest {
     }
 
     private void operate(Operation operation) {
-        System.out.println(operation);
-
         if (operation.action == Action.PUT) {
             golden.put(operation.key, operation.value);
             sut.put(operation.key, operation.value);
@@ -99,7 +115,7 @@ public class LFUCacheTest {
             int expected = golden.get(operation.key);
             int actual = sut.get(operation.key);
             if (expected != actual) {
-                throw new RuntimeException("\n[TEST FAILED]\nExpected :" + expected + "\nActual: " + actual+'\n');
+                throw new RuntimeException("\n[TEST FAILED]\nExpected :" + expected + "\nActual: " + actual + '\n');
             }
         }
     }
@@ -125,20 +141,21 @@ public class LFUCacheTest {
         @Override
         public String toString() {
             switch (action) {
-                case PUT:
-                    return "Put("+ key +","+ value +")";
-                case GET:
-                    return "Get("+ key +")";
-                default:
-                    return "Unknown operation";
+            case PUT:
+                return "Put(" + key + "," + value + ")";
+            case GET:
+                return "Get(" + key + ")";
+            default:
+                return "Unknown operation";
             }
         }
     }
 
-    private enum Action {GET, PUT};
+    private enum Action {
+        GET, PUT
+    };
 
-
-    private static class LFUCacheAnswer implements LFUCache {
+    private static class LFUCacheExpected {
 
         private final Map<Integer, CacheNode> cache;
         private final LinkedHashSet[] frequencyList;
@@ -146,7 +163,7 @@ public class LFUCacheTest {
         private int maxFrequency;
         private final int maxCacheSize;
 
-        public LFUCacheAnswer(int capacity) {
+        public LFUCacheExpected(int capacity) {
             this.cache = new HashMap<Integer, CacheNode>(capacity);
             this.frequencyList = new LinkedHashSet[capacity * 2];
             this.lowestFrequency = 0;
@@ -272,11 +289,8 @@ public class LFUCacheTest {
             }
         }
 
-        private void moveToNextFrequency(
-                CacheNode currentNode,
-                int nextFrequency,
-                LinkedHashSet<CacheNode> currentNodes,
-                LinkedHashSet<CacheNode> newNodes) {
+        private void moveToNextFrequency(CacheNode currentNode, int nextFrequency,
+                LinkedHashSet<CacheNode> currentNodes, LinkedHashSet<CacheNode> newNodes) {
             currentNodes.remove(currentNode);
             newNodes.add(currentNode);
             currentNode.frequency = nextFrequency;
