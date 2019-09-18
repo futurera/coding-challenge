@@ -2,6 +2,16 @@
 
 Here host codes of Futurera's coding challenges.
 
+## To contribute:
+
+* Put your coding challenge class within `/src/io/futurera/algorithm` folder
+* Add javadoc to explain the original question
+* Put your test runner class in `/src/io/futurera/algorithm/tests` folder
+* Submit a Pull Request
+
+
+## To participate and practice:
+
 1. The order to complete the tasks, recommended by our questions committees based on the difficulty ASC is:
 
 - PlusOne (15 min)
